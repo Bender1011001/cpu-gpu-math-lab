@@ -1,0 +1,39 @@
+{
+  "release": "0.1.0",
+  "recorded_utc": "2026-11-09T10:53:02.467043+00:00",
+  "published_source_sha256": {
+    "CMakeLists.txt": "ed227a82aea8fa143e142f84b353b16a24a99684cbc866dce7cd431c35021750",
+    "include/mathlab/division.hpp": "b532373ce919fe253307c1c01daf125ef0c2eb45241943f83601eb3d37c55a76",
+    "src/division.cpp": "0bca159ed38ba3e5de5d9e8132bde5b42f070aa845cbfa7d9ef5336258b4d5fc",
+    "src/benchmark.cpp": "9e7386c4ee83351670dc7631e5a4db0c8a0991709985cd84ce534a99d2ee08a8",
+    "tests/division_test.cpp": "61a3ce38476b84812b424fa1735bc3082a4db490464af38d7c2a9b1b3c0719cc"
+  },
+  "measurement_sha256": {
+    "results/cpu_division_i5_13600k_initial.json": "9c876a8343e58687bf8ee42952c3c7023f2ab4fcb94c258dbbb48fe7c7a695f2",
+    "results/cpu_division_i5_13600k_confirmation.json": "649cbf6fa135bc60604d742dace8857f46b3b805c8c02da8230431ea7640be3e"
+  },
+  "measurement_source_note": "Formatting was normalized after timing; numerical kernels and timing operations were unchanged. Tail guards were strengthened in the standalone test.",
+  "validation": {
+    "native": {
+      "methods": 6,
+      "exact_output_checks": 25224720,
+      "ctest": "passed"
+    },
+    "portable": {
+      "methods": 4,
+      "exact_output_checks": 16816480,
+      "ctest": "passed"
+    },
+    "initial_run_exact_output_checks": 226590720,
+    "confirmation_run_exact_output_checks": 226590720,
+    "timing_medians_recomputed": true
+  },
+  "environment": {
+    "cpu": "Intel Core i5-13600K",
+    "os": "Windows 11 Pro build 22631",
+    "compiler": "Clang 22.1.8",
+    "native_tuning": true,
+    "rounding": "FE_TONEAREST",
+    "thread_affinity": "unpinned"
+  }
+}

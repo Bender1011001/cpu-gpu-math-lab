@@ -1,0 +1,43 @@
+name: Build and correctness
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux GCC portable
+            os: ubuntu-latest
+            cxx: g++
+            native: 'OFF'
+          - name: Linux Clang portable
+            os: ubuntu-latest
+            cxx: clang++
+            native: 'OFF'
+          - name: Linux Clang native
+            os: ubuntu-latest
+            cxx: clang++
+            native: 'ON'
+          - name: Windows MSVC portable
+            os: windows-latest
+            cxx: ''
+            native: 'OFF'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Configure
+        env:
+          CXX: ${{ matrix.cxx }}
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMATHLAB_NATIVE=${{ matrix.native }}
+      - name: Build
+        run: cmake --build build --config Release --parallel 2
+      - name: Check exact quotients
+        run: ctest --test-dir build -C Release --output-on-failure

@@ -1,0 +1,25 @@
+name: Reproduction report
+description: Share measurements or a correctness counterexample from your machine.
+title: '[Reproduction] CPU / compiler'
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: CPU, OS, compiler version, build flags, and core pinning if used.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands and correctness result
+      description: Include build, CTest, and benchmark commands, plus their outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Raw measurements or counterexample
+      description: Attach the benchmark JSON or paste exact failing inputs and outputs.
+    validations:
+      required: true
